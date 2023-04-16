@@ -1,13 +1,10 @@
+import type { NextPage } from 'next';
 import Head from 'next/head';
-import Image from 'next/image';
-import { Inter } from 'next/font/google';
 import styles from '@/styles/Home.module.css';
 
-const inter = Inter({ subsets: ['latin'] });
-
-export default function Home() {
+const IndexPage: NextPage = () => {
   return (
-    <>
+    <div className={styles.container}>
       <Head>
         <title>AgencyAnalytics Code Challenge</title>
         <meta name="description" content="AgencyAnalytics Code Challenge" />
@@ -15,6 +12,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}></main>
-    </>
+    </div>
   );
-}
+};
+
+export default IndexPage;
