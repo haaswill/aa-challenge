@@ -2,7 +2,7 @@ import styles from './styles.module.css';
 
 interface IButtonProps {
   label: string;
-  type: 'button' | 'reset' | 'submit';
+  type?: 'button' | 'reset' | 'submit';
   onClick: () => void;
 }
 
