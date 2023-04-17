@@ -45,7 +45,11 @@ export const fetchImagesAsync = createAsyncThunk(
   'gallery/fetchImages',
   async () => {
     const response = await fetchImages();
-    return response;
+    return response.sort((a, b) => {
+      const dateA = new Date(a.createdAt);
+      const dateB = new Date(b.createdAt);
+      return dateB.getTime() - dateA.getTime();
+    });
   }
 );
 
