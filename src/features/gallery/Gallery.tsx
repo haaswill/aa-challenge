@@ -2,7 +2,12 @@ import { useEffect } from 'react';
 import Image from 'next/image';
 
 import { useAppSelector, useAppDispatch } from '@/hooks';
-import { fetchImagesAsync, getAllImages } from './gallerySlice';
+import {
+  IImage,
+  fetchImagesAsync,
+  getAllImages,
+  getFavoritedImages,
+} from './gallerySlice';
 import Spinner from '@/components/Spinner';
 import styles from './Gallery.module.css';
 import ImageList from '@/components/ImageList';
@@ -11,6 +16,7 @@ import Tabs from '@/components/Tabs';
 function Gallery() {
   const dispatch = useAppDispatch();
   const images = useAppSelector(getAllImages);
+  const favoritedImages = useAppSelector(getFavoritedImages);
 
   const status = useAppSelector((state) => state.gallery.status);
   const error = useAppSelector((state) => state.gallery.error);
@@ -25,22 +31,13 @@ function Gallery() {
     console.log(id);
   };
 
-  const renderGallery = ({
-    isFavorited,
-  }: {
-    isFavorited?: boolean;
-  }): JSX.Element => {
+  const renderGallery = (images: IImage[]): JSX.Element => {
     switch (status) {
       case 'loading':
         return <Spinner />;
       case 'succeeded':
         return (
-          <ImageList
-            images={
-              isFavorited ? images.filter((image) => image.favorited) : images
-            }
-            onClick={handleOnClickImageListItem}
-          />
+          <ImageList images={images} onClick={handleOnClickImageListItem} />
         );
       case 'failed':
         return <div>{error}</div>;
@@ -56,12 +53,12 @@ function Gallery() {
         tabs={[
           {
             id: 1,
-            content: renderGallery({}),
+            content: renderGallery(images),
             title: 'Recently Added',
           },
           {
             id: 2,
-            content: renderGallery({ isFavorited: true }),
+            content: renderGallery(favoritedImages),
             title: 'Favorited',
           },
         ]}
