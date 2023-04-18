@@ -1,15 +1,16 @@
 import React from 'react';
 import { BsHeart, BsHeartFill } from 'react-icons/bs';
 import { IImage } from '@/features/gallery/gallerySlice';
-import { formatBytes } from '@/utils';
+import { formatBytes, formatDate } from '@/utils';
 import Image from '@/components/Image';
 import styles from './ImageDetails.module.css';
 import ImageInformation from './ImageInformation';
 import Button from '../Button';
+import classNames from 'classnames';
 
 interface IImageDetailsProps {
-  image: IImage;
-  onClickFavorite: (value: boolean) => void;
+  image: IImage | null;
+  onClickFavorite: (id: string, value: boolean) => void;
   onClickDelete: (id: string) => void;
 }
 
@@ -17,12 +18,16 @@ const ImageDetails = ({
   image,
   onClickFavorite,
   onClickDelete,
-}: IImageDetailsProps): JSX.Element => {
-  const renderHeart = (favorited: boolean): JSX.Element => {
+}: IImageDetailsProps): JSX.Element | null => {
+  if (!image) {
+    return null;
+  }
+
+  const renderHeart = (id: string, favorited: boolean): JSX.Element => {
     return favorited ? (
-      <BsHeartFill onClick={() => onClickFavorite(false)} />
+      <BsHeartFill fill="#4f45e4" onClick={() => onClickFavorite(id, false)} />
     ) : (
-      <BsHeart onClick={() => onClickFavorite(true)} />
+      <BsHeart fill="#64748b" onClick={() => onClickFavorite(id, true)} />
     );
   };
 
@@ -33,8 +38,8 @@ const ImageDetails = ({
 
     return (
       <div className={styles.row}>
-        <h4>Description</h4>
-        <p>{image.description}</p>
+        <h4 className={styles.heading}>Description</h4>
+        <p className={styles.description}>{image.description}</p>
       </div>
     );
   };
@@ -48,17 +53,20 @@ const ImageDetails = ({
         width={320}
       />
       <div className={styles.row}>
-        <div className={styles.col}>
+        <div className={styles.topActions}>
           <p className={styles.filename}>{image.filename}</p>
-          <span className={styles.size}>{formatBytes(image.sizeInBytes)}</span>
+          {renderHeart(image.id, image.favorited)}
         </div>
-        <div className={styles.col}>{renderHeart(image.favorited)}</div>
+        <span className={styles.size}>{formatBytes(image.sizeInBytes)}</span>
       </div>
       <div className={styles.row}>
-        <h4>Information</h4>
+        <h4 className={styles.heading}>Information</h4>
         <ImageInformation title="Uploaded by" value={image.uploadedBy} />
-        <ImageInformation title="Created" value={image.createdAt} />
-        <ImageInformation title="Last modified" value={image.updatedAt} />
+        <ImageInformation title="Created" value={formatDate(image.createdAt)} />
+        <ImageInformation
+          title="Last modified"
+          value={formatDate(image.updatedAt)}
+        />
         <ImageInformation
           title="Dimensions"
           value={`${image.dimensions.width} x ${image.dimensions.height}`}
@@ -69,7 +77,9 @@ const ImageDetails = ({
         />
       </div>
       {renderDescription(image.description)}
-      <Button label="Delete" onClick={() => onClickDelete(image.id)} />
+      <div className={styles.row}>
+        <Button label="Delete" onClick={() => onClickDelete(image.id)} />
+      </div>
     </div>
   );
 };

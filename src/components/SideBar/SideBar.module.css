@@ -1,7 +1,30 @@
 .container {
-  display: flex;
+  background-color: var(--white);
+  height: 100%;
+  max-width: 384px;
+  padding: 2rem;
+  border-left: 1px;
+  position: absolute;
+  top: 0;
+  left: -100%;
+}
+
+.desktop .open {
+  animation: slide-in 0.5s ease forwards;
+}
+
+.mobile .open {
 }
 
 /* Add desktop styles to push gallery to the left */
 
 /* Add mobile styles to cover gallery */
+
+@keyframes slide-in {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 0;
+  }
+}

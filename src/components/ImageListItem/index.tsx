@@ -24,8 +24,8 @@ const ImageListItem = ({
       <Image
         src={image.url}
         alt={image.description || image.filename}
-        height={120}
-        width={150}
+        height={140}
+        width={180}
       />
       <p className={styles.filename}>{image.filename}</p>
       <span className={styles.size}>{formatBytes(image.sizeInBytes)}</span>

@@ -1,9 +1,8 @@
 .container {
   display: grid;
-  max-width: 150px;
 }
 
-.container.selected img {
+.selected img {
   outline: 2px solid var(--color-highlight);
   outline-offset: 2px;
 }

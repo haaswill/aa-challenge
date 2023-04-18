@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { fetchImages } from './galleryAPI';
 import { AppState } from '@/store';
 
@@ -57,13 +57,21 @@ export const gallerySlice = createSlice({
   name: 'gallery',
   initialState,
   reducers: {
-    deleteImage: (state, action) => {
-      //TODO: Add logic to delete image
-      console.log(state, action);
+    deleteImage: (state, action: PayloadAction<{ id: string }>) => {
+      state.images = state.images.filter(
+        (image) => image.id !== action.payload.id
+      );
     },
-    favoriteImage: (state, action) => {
-      //TODO: Add logic to add/remove favorite
-      console.log(state, action);
+    favoriteImage: (
+      state,
+      action: PayloadAction<{ id: string; value: boolean }>
+    ) => {
+      const index = state.images.findIndex(
+        (image) => image.id === action.payload.id
+      );
+      if (index !== -1) {
+        state.images[index].favorited = action.payload.value;
+      }
     },
   },
   extraReducers(builder) {
@@ -89,7 +97,7 @@ export const getAllImages = (state: AppState) => state.gallery.images;
 export const getFavoritedImages = (state: AppState) =>
   state.gallery.images.filter((image) => image.favorited === true);
 
-export const getImageById = (state: AppState, imageId: string) =>
-  state.gallery.images.find((image) => image.id === imageId);
+export const getImageById = (state: AppState, imageId: string | null) =>
+  state.gallery.images.find((image) => image.id === imageId) || null;
 
 export default gallerySlice.reducer;
