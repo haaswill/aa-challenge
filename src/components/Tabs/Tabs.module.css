@@ -25,6 +25,10 @@
   cursor: pointer;
 }
 
+.tabTitle:last-of-type {
+  margin-right: 0;
+}
+
 .tabTitle.active {
   color: var(--color-highlight);
 }
@@ -49,4 +53,16 @@
 .tabContent.active {
   display: flex;
   width: 100%;
+}
+
+/* XXSmall */
+@media (max-width: 433px) {
+  .tabTitles {
+    justify-content: space-between;
+  }
+
+  .tabTitle {
+    margin: 0;
+    flex: 1;
+  }
 }
