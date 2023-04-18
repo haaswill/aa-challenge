@@ -7,10 +7,16 @@ import IconButton from '@/components/IconButton';
 interface ISideBarProps {
   children: ReactElement;
   isOpen: boolean;
+  testid?: string;
   onClickCloseButton: () => void;
 }
 
-const SideBar = ({ children, isOpen, onClickCloseButton }: ISideBarProps) => {
+const SideBar = ({
+  children,
+  isOpen,
+  testid = 'sidebar',
+  onClickCloseButton,
+}: ISideBarProps) => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -37,6 +43,7 @@ const SideBar = ({ children, isOpen, onClickCloseButton }: ISideBarProps) => {
       <IconButton
         icon={<BsXLg fill="#10172a" className={styles.closeButton} />}
         label="Close"
+        testid="close-button"
         onClick={onClickCloseButton}
       />
     );
@@ -48,6 +55,7 @@ const SideBar = ({ children, isOpen, onClickCloseButton }: ISideBarProps) => {
         isMobile ? styles.mobile : styles.desktop,
         isOpen && styles.open,
       ])}
+      data-testid={testid}
     >
       {renderCloseButton(isMobile)}
       {children}

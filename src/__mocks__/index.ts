@@ -30,3 +30,16 @@ export const getImageMock = ({
     url: 'test/test.jpg',
   };
 };
+
+export const getMatchMediaMock = (matches = false) => {
+  return (window.matchMedia = jest.fn().mockImplementation((query) => ({
+    matches,
+    media: query,
+    onchange: null,
+    addListener: jest.fn(), // Deprecated
+    removeListener: jest.fn(), // Deprecated
+    addEventListener: jest.fn(),
+    removeEventListener: jest.fn(),
+    dispatchEvent: jest.fn(),
+  })));
+};

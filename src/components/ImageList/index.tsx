@@ -15,7 +15,7 @@ const ImageList = ({
   onClick,
 }: IImageListProps): JSX.Element => {
   return (
-    <ul className={styles.container}>
+    <ul className={styles.container} role="list">
       {images.map((image) => (
         <ListItem
           key={image.id}

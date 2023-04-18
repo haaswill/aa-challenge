@@ -23,7 +23,8 @@
     "start": "next start",
     "lint": "next lint",
     "type-check": "tsc",
-    "test": "jest"
+    "test": "jest",
+    "test-watch": "jest --watch"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",

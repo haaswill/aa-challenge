@@ -2,7 +2,7 @@ import { ReactElement, useState } from 'react';
 import classNames from 'classnames';
 import styles from './Tabs.module.css';
 
-interface ITab {
+export interface ITab {
   id: number;
   title: string;
   content: ReactElement;
@@ -10,13 +10,14 @@ interface ITab {
 
 interface ITabsProps {
   tabs: ITab[];
+  testid?: string;
 }
 
-const Tabs = ({ tabs }: ITabsProps) => {
+const Tabs = ({ tabs, testid = 'tabs' }: ITabsProps) => {
   const [activeTab, setActiveTab] = useState(tabs[0].id);
 
   return (
-    <nav className={styles.container} role="tablist">
+    <nav className={styles.container} role="tablist" data-testid={testid}>
       <ul className={styles.tabTitles}>
         {tabs.map((tab, index) => (
           <li
@@ -30,6 +31,7 @@ const Tabs = ({ tabs }: ITabsProps) => {
             role="tab"
             aria-selected={activeTab === tab.id}
             aria-controls={`tab${index}`}
+            data-testid={`${testid}-title-${index}`}
           >
             {tab.title}
           </li>
@@ -46,6 +48,7 @@ const Tabs = ({ tabs }: ITabsProps) => {
             id={`tab${index}`}
             aria-labelledby={`tab${index}-tab`}
             hidden={tab.id !== activeTab}
+            data-testid={`${testid}-content-${index}`}
           >
             {tab.content}
           </div>
