@@ -49,6 +49,8 @@ function Gallery() {
 
   const handleOnClickDelete = (id: string) => {
     dispatch(deleteImage({ id }));
+    setSelectedImageId(null);
+    setOpenSideBar(false);
   };
 
   const handleOnClickFavorite = (id: string, value: boolean) => {
