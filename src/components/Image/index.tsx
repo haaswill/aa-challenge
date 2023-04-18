@@ -1,21 +1,21 @@
-import NextImage from 'next/image';
+/* eslint-disable @next/next/no-img-element */
+// Disabled NextJS image warning cause it wansn't
+// working properly
 import styles from './Image.module.css';
+import classNames from 'classnames';
 
 interface IImageProps {
   src: string;
   alt: string;
-  width: number;
-  height: number;
+  customClass?: string;
 }
 
-const Image = ({ src, alt, width, height }: IImageProps): JSX.Element => {
+const Image = ({ src, alt, customClass }: IImageProps): JSX.Element => {
   return (
-    <NextImage
-      className={styles.image}
+    <img
+      className={classNames([styles.image, customClass])}
       src={src}
       alt={alt}
-      width={width}
-      height={height}
     />
   );
 };

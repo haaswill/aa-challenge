@@ -1,30 +1,36 @@
 .container {
   background-color: var(--white);
   height: 100%;
-  max-width: 384px;
-  padding: 2rem;
   border-left: 1px;
+  width: 0;
+}
+
+.desktop {
+  composes: container;
+}
+
+.desktop.open {
+  width: 384px;
+  opacity: 1;
+  padding: 2rem;
+  transition: width 250ms;
+}
+
+.mobile {
+  composes: container;
+}
+
+.mobile.open {
   position: absolute;
+  right: 0;
   top: 0;
-  left: -100%;
+  width: 100%;
+  padding: 1rem;
+  z-index: 10;
 }
 
-.desktop .open {
-  animation: slide-in 0.5s ease forwards;
-}
-
-.mobile .open {
-}
-
-/* Add desktop styles to push gallery to the left */
-
-/* Add mobile styles to cover gallery */
-
-@keyframes slide-in {
-  0% {
-    left: -100%;
-  }
-  100% {
-    left: 0;
-  }
+.closeButton {
+  width: 20px;
+  height: 100%;
+  margin-bottom: 1rem;
 }

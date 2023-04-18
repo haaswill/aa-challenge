@@ -12,14 +12,13 @@ interface ITabsProps {
   tabs: ITab[];
 }
 
-// TODO: Improve accessibility
 const Tabs = ({ tabs }: ITabsProps) => {
   const [activeTab, setActiveTab] = useState(tabs[0].id);
 
   return (
-    <div className={styles.container}>
+    <nav className={styles.container} role="tablist">
       <ul className={styles.tabTitles}>
-        {tabs.map((tab) => (
+        {tabs.map((tab, index) => (
           <li
             className={classNames([
               styles.tabTitle,
@@ -27,25 +26,32 @@ const Tabs = ({ tabs }: ITabsProps) => {
             ])}
             onClick={() => setActiveTab(tab.id)}
             key={`title-${tab.id}`}
+            id={`tab${index}-tab`}
+            role="tab"
+            aria-selected={activeTab === tab.id}
+            aria-controls={`tab${index}`}
           >
             {tab.title}
           </li>
         ))}
       </ul>
       <div className={styles.tabContentContainer}>
-        {tabs.map((tab) => (
+        {tabs.map((tab, index) => (
           <div
             className={classNames([
               styles.tabContent,
               activeTab === tab.id && styles.active,
             ])}
             key={tab.id}
+            id={`tab${index}`}
+            aria-labelledby={`tab${index}-tab`}
+            hidden={tab.id !== activeTab}
           >
             {tab.content}
           </div>
         ))}
       </div>
-    </div>
+    </nav>
   );
 };
 

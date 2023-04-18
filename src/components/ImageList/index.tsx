@@ -5,25 +5,23 @@ import styles from './ImageList.module.css';
 
 interface IImageListProps {
   images: IImage[];
+  selectedImageId: string | null;
   onClick: (id: string) => void;
 }
 
-const ImageList = ({ images, onClick }: IImageListProps): JSX.Element => {
-  const [selectedId, setSelectedId] = useState<string | null>(null);
-
-  const handleOnClick = (id: string) => {
-    setSelectedId(id);
-    onClick(id);
-  };
-
+const ImageList = ({
+  images,
+  selectedImageId,
+  onClick,
+}: IImageListProps): JSX.Element => {
   return (
     <ul className={styles.container}>
       {images.map((image) => (
         <ListItem
           key={image.id}
           image={image}
-          selected={image.id === selectedId}
-          onClick={() => handleOnClick(image.id)}
+          selected={image.id === selectedImageId}
+          onClick={() => onClick(image.id)}
         />
       ))}
     </ul>

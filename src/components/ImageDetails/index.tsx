@@ -3,10 +3,10 @@ import { BsHeart, BsHeartFill } from 'react-icons/bs';
 import { IImage } from '@/features/gallery/gallerySlice';
 import { formatBytes, formatDate } from '@/utils';
 import Image from '@/components/Image';
+import Button from '@/components/Button';
+import IconButton from '@/components/IconButton';
 import styles from './ImageDetails.module.css';
 import ImageInformation from './ImageInformation';
-import Button from '../Button';
-import classNames from 'classnames';
 
 interface IImageDetailsProps {
   image: IImage | null;
@@ -25,9 +25,17 @@ const ImageDetails = ({
 
   const renderHeart = (id: string, favorited: boolean): JSX.Element => {
     return favorited ? (
-      <BsHeartFill fill="#4f45e4" onClick={() => onClickFavorite(id, false)} />
+      <IconButton
+        label="Favorited"
+        onClick={() => onClickFavorite(id, false)}
+        icon={<BsHeartFill fill="#4f45e4" className={styles.favorited} />}
+      />
     ) : (
-      <BsHeart fill="#64748b" onClick={() => onClickFavorite(id, true)} />
+      <IconButton
+        label="Not Favorited"
+        onClick={() => onClickFavorite(id, true)}
+        icon={<BsHeart fill="#64748b" className={styles.favorited} />}
+      />
     );
   };
 
@@ -49,8 +57,7 @@ const ImageDetails = ({
       <Image
         src={image.url}
         alt={image.description || image.filename}
-        height={210}
-        width={320}
+        customClass={styles.image}
       />
       <div className={styles.row}>
         <div className={styles.topActions}>

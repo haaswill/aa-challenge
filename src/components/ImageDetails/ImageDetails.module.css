@@ -18,6 +18,10 @@
   justify-content: space-between;
 }
 
+.topActions svg {
+  cursor: pointer;
+}
+
 .filename {
   color: var(--font-color-primary);
   font-size: 18px;
@@ -62,4 +66,38 @@
   color: var(--font-color-secondary);
   font-size: 14px;
   font-weight: 500;
+}
+
+.favorited {
+  width: 18px;
+  height: 100%;
+}
+
+.image {
+  width: 320px;
+  height: 210px;
+}
+
+/* XXSmall */
+@media (max-width: 433px) {
+  .image {
+    height: 200px;
+    width: 100%;
+  }
+}
+
+/* XSmall */
+@media (min-width: 434px) and (max-width: 480px) {
+  .image {
+    height: 240px;
+    width: 100%;
+  }
+}
+
+/* Small */
+@media (min-width: 481px) and (max-width: 689px) {
+  .image {
+    height: 40%;
+    width: 100%;
+  }
 }

@@ -1,5 +1,11 @@
 .container {
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  width: auto;
+}
+
+.container img {
+  cursor: pointer;
 }
 
 .selected img {
@@ -22,4 +28,41 @@
   font-size: 14px;
   margin-top: 0.25rem;
   text-transform: uppercase;
+}
+
+.image {
+  height: 140px;
+  width: 180px;
+}
+
+/* XXSmall */
+@media (max-width: 433px) {
+  .image {
+    height: 200px;
+    width: 100%;
+  }
+}
+
+/* XSmall */
+@media (min-width: 434px) and (max-width: 480px) {
+  .image {
+    height: 140px;
+    width: 100%;
+  }
+}
+
+/* Small */
+@media (min-width: 481px) and (max-width: 700px) {
+  .image {
+    height: 160px;
+    width: 100%;
+  }
+}
+
+/* Medium */
+@media (min-width: 701px) and (max-width: 1120px) {
+  .image {
+    height: 160px;
+    width: 100%;
+  }
 }

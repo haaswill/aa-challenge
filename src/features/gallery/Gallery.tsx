@@ -21,6 +21,7 @@ import ImageDetails from '@/components/ImageDetails';
 function Gallery() {
   const dispatch = useAppDispatch();
   const [selectedImageId, setSelectedImageId] = useState<string | null>(null);
+  const [openSideBar, setOpenSideBar] = useState<boolean>(false);
 
   const images = useAppSelector(getAllImages);
   const favoritedImages = useAppSelector(getFavoritedImages);
@@ -37,7 +38,13 @@ function Gallery() {
   }, [status, dispatch]);
 
   const handleOnClickImageListItem = (id: string) => {
-    setSelectedImageId(id);
+    if (id === selectedImageId) {
+      setSelectedImageId(null);
+      setOpenSideBar(false);
+    } else {
+      setSelectedImageId(id);
+      setOpenSideBar(true);
+    }
   };
 
   const handleOnClickDelete = (id: string) => {
@@ -48,13 +55,22 @@ function Gallery() {
     dispatch(favoriteImage({ id, value }));
   };
 
+  const handleOnClickCloseSideBar = () => {
+    setSelectedImageId(null);
+    setOpenSideBar(false);
+  };
+
   const renderGallery = (images: IImage[]): JSX.Element => {
     switch (status) {
       case 'loading':
         return <Spinner />;
       case 'succeeded':
         return (
-          <ImageList images={images} onClick={handleOnClickImageListItem} />
+          <ImageList
+            images={images}
+            selectedImageId={selectedImageId}
+            onClick={handleOnClickImageListItem}
+          />
         );
       case 'failed':
         return <div>{error}</div>;
@@ -82,7 +98,10 @@ function Gallery() {
           ]}
         />
       </div>
-      <SideBar isOpen={!!selectedImage}>
+      <SideBar
+        isOpen={openSideBar}
+        onClickCloseButton={handleOnClickCloseSideBar}
+      >
         <ImageDetails
           image={selectedImage}
           onClickDelete={handleOnClickDelete}
