@@ -1,13 +1,19 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## About
+This app was built as a coding challenge provided by AgencyAnalytics.
+If you have any questions or recommendations, please reach out to me by [email](mailto:haaswillian@gmail.com)
 
 Live version hosted by Vercel: 
 - https://aa-challenge-haaswill.vercel.app
 - https://aa-challenge-lake.vercel.app
 - https://aa-challenge-git-master-haaswill.vercel.app
 
-# This app was built as a coding challenge provided by AgencyAnalytics.
-
-Any questions or recommendations, please reach out to me by [email](mailto:haaswillian@gmail.com)
+Main Technologies:
+- TypeScript
+- NextJS
+- CSS Modules
+- Redux
+- Jest
+- Cypress
 
 ## Getting Started
 
