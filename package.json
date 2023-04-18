@@ -25,7 +25,8 @@
     "lint-cypress": "tsc --project cypress/tsconfig.json",
     "type-check": "tsc",
     "test": "jest",
-    "test-watch": "jest --watch"
+    "test-watch": "jest --watch",
+    "cypress": "cypress open"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
