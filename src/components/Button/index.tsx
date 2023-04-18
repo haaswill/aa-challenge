@@ -4,6 +4,7 @@ interface IButtonProps {
   label: string;
   type?: 'button' | 'reset' | 'submit';
   testid?: string;
+  tabIndex?: number;
   onClick: () => void;
 }
 
@@ -11,6 +12,7 @@ const Button = ({
   label,
   type = 'button',
   testid = 'button',
+  tabIndex,
   onClick,
 }: IButtonProps) => {
   return (
@@ -18,6 +20,7 @@ const Button = ({
       className={styles.button}
       type={type}
       data-testid={testid}
+      tabIndex={tabIndex}
       onClick={onClick}
     >
       {label}

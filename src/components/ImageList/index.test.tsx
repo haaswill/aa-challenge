@@ -1,4 +1,3 @@
-// TODO: Add tests
 import { render, fireEvent } from '@testing-library/react';
 import ImageList from './index';
 import { getImageMock } from '@/__mocks__';

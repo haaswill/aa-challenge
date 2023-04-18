@@ -7,8 +7,12 @@ interface IImageInformationProps {
 
 const ImageInformation = ({ title, value }: IImageInformationProps) => (
   <div className={styles.information}>
-    <p className={styles.informationTitle}>{title}</p>
-    <span className={styles.informationValue}>{value}</span>
+    <p className={styles.informationTitle} tabIndex={1}>
+      {title}
+    </p>
+    <span className={styles.informationValue} tabIndex={1}>
+      {value}
+    </span>
   </div>
 );
 

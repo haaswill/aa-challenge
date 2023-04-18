@@ -5,6 +5,7 @@ interface IIconButtonProps {
   label: string;
   icon: ReactElement;
   testid?: string;
+  tabIndex?: number;
   onClick: () => void;
 }
 
@@ -12,6 +13,7 @@ const IconButton = ({
   label,
   icon,
   testid = 'icon-button',
+  tabIndex,
   onClick,
 }: IIconButtonProps) => {
   return (
@@ -21,6 +23,7 @@ const IconButton = ({
       type="button"
       onClick={onClick}
       data-testid={testid}
+      tabIndex={tabIndex}
     >
       {icon}
     </button>

@@ -8,14 +8,21 @@ interface IImageProps {
   src: string;
   alt: string;
   customClass?: string;
+  tabIndex?: number;
 }
 
-const Image = ({ src, alt, customClass }: IImageProps): JSX.Element => {
+const Image = ({
+  src,
+  alt,
+  customClass,
+  tabIndex,
+}: IImageProps): JSX.Element => {
   return (
     <img
       className={classNames([styles.image, customClass])}
       src={src}
       alt={alt}
+      tabIndex={tabIndex}
     />
   );
 };

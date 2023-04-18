@@ -1,4 +1,3 @@
-// TODO: Add tests
 import { render, fireEvent } from '@testing-library/react';
 import SideBar from './index';
 import { getMatchMediaMock } from '@/__mocks__';

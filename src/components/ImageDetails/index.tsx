@@ -29,6 +29,7 @@ const ImageDetails = ({
         label="Favorited"
         testid="favorited"
         onClick={() => onClickFavorite(id, false)}
+        tabIndex={1}
         icon={<BsHeartFill fill="#4f45e4" className={styles.favorited} />}
       />
     ) : (
@@ -36,6 +37,7 @@ const ImageDetails = ({
         label="Not Favorited"
         testid="unfavorited"
         onClick={() => onClickFavorite(id, true)}
+        tabIndex={1}
         icon={<BsHeart fill="#64748b" className={styles.favorited} />}
       />
     );
@@ -48,8 +50,12 @@ const ImageDetails = ({
 
     return (
       <div className={styles.row}>
-        <h4 className={styles.heading}>Description</h4>
-        <p className={styles.description}>{image.description}</p>
+        <h4 className={styles.heading} tabIndex={1}>
+          Description
+        </h4>
+        <p className={styles.description} tabIndex={1}>
+          {image.description}
+        </p>
       </div>
     );
   };
@@ -60,16 +66,23 @@ const ImageDetails = ({
         src={image.url}
         alt={image.description || image.filename}
         customClass={styles.image}
+        tabIndex={1}
       />
       <div className={styles.row}>
         <div className={styles.topActions}>
-          <p className={styles.filename}>{image.filename}</p>
+          <p className={styles.filename} tabIndex={1}>
+            {image.filename}
+          </p>
           {renderHeart(image.id, image.favorited)}
         </div>
-        <span className={styles.size}>{formatBytes(image.sizeInBytes)}</span>
+        <span className={styles.size} tabIndex={1}>
+          {formatBytes(image.sizeInBytes)}
+        </span>
       </div>
       <div className={styles.row}>
-        <h4 className={styles.heading}>Information</h4>
+        <h4 className={styles.heading} tabIndex={1}>
+          Information
+        </h4>
         <ImageInformation title="Uploaded by" value={image.uploadedBy} />
         <ImageInformation title="Created" value={formatDate(image.createdAt)} />
         <ImageInformation
@@ -90,6 +103,7 @@ const ImageDetails = ({
         <Button
           label="Delete"
           testid="delete"
+          tabIndex={1}
           onClick={() => onClickDelete(image.id)}
         />
       </div>

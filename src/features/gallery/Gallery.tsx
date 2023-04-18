@@ -1,6 +1,4 @@
-import { useEffect, useState } from 'react';
-import Image from 'next/image';
-
+import { useEffect, useState, useRef } from 'react';
 import { useAppSelector, useAppDispatch } from '@/hooks';
 import {
   IImage,
@@ -30,6 +28,7 @@ function Gallery() {
   );
   const status = useAppSelector((state) => state.gallery.status);
   const error = useAppSelector((state) => state.gallery.error);
+  const sideBarRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (status === 'idle') {
@@ -44,6 +43,8 @@ function Gallery() {
     } else {
       setSelectedImageId(id);
       setOpenSideBar(true);
+      console.log(sideBarRef);
+      sideBarRef.current?.focus();
     }
   };
 
@@ -84,7 +85,9 @@ function Gallery() {
   return (
     <div className={styles.container}>
       <div className={styles.mainContent}>
-        <h1 className={styles.title}>Photos</h1>
+        <h1 className={styles.title} tabIndex={0}>
+          Photos
+        </h1>
         <Tabs
           tabs={[
             {
@@ -103,6 +106,7 @@ function Gallery() {
       <SideBar
         isOpen={openSideBar}
         onClickCloseButton={handleOnClickCloseSideBar}
+        focusRef={sideBarRef}
       >
         <ImageDetails
           image={selectedImage}

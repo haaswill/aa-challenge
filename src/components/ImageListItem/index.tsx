@@ -12,19 +12,26 @@ interface IImageListItemProps {
   onClick: () => void;
 }
 
-// TODO: Add key press event listeners
 const ImageListItem = ({
   image,
   selected = false,
   testid = 'image-list-item',
   onClick,
 }: IImageListItemProps): JSX.Element => {
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLLIElement>) => {
+    if (event.key === 'Enter') {
+      event.currentTarget.click();
+    }
+  };
+
   return (
     <li
       className={classNames([styles.container, selected && styles.selected])}
       role="listitem"
       data-testid={testid}
       onClick={onClick}
+      onKeyDown={handleKeyDown}
+      tabIndex={0}
     >
       <Image
         src={image.url}

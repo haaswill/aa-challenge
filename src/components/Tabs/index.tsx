@@ -16,6 +16,12 @@ interface ITabsProps {
 const Tabs = ({ tabs, testid = 'tabs' }: ITabsProps) => {
   const [activeTab, setActiveTab] = useState(tabs[0].id);
 
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLLIElement>) => {
+    if (event.key === 'Enter') {
+      event.currentTarget.click();
+    }
+  };
+
   return (
     <nav className={styles.container} role="tablist" data-testid={testid}>
       <ul className={styles.tabTitles}>
@@ -26,12 +32,14 @@ const Tabs = ({ tabs, testid = 'tabs' }: ITabsProps) => {
               activeTab === tab.id && styles.active,
             ])}
             onClick={() => setActiveTab(tab.id)}
+            onKeyDown={handleKeyDown}
             key={`title-${tab.id}`}
             id={`tab${index}-tab`}
             role="tab"
             aria-selected={activeTab === tab.id}
             aria-controls={`tab${index}`}
             data-testid={`${testid}-title-${index}`}
+            tabIndex={0}
           >
             {tab.title}
           </li>

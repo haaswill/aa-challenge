@@ -1,4 +1,4 @@
-import { ReactElement, useState, useEffect } from 'react';
+import { ReactElement, RefObject, useState, useEffect } from 'react';
 import classNames from 'classnames';
 import { BsXLg } from 'react-icons/bs';
 import styles from './SideBar.module.css';
@@ -7,6 +7,7 @@ import IconButton from '@/components/IconButton';
 interface ISideBarProps {
   children: ReactElement;
   isOpen: boolean;
+  focusRef: RefObject<HTMLDivElement>;
   testid?: string;
   onClickCloseButton: () => void;
 }
@@ -14,6 +15,7 @@ interface ISideBarProps {
 const SideBar = ({
   children,
   isOpen,
+  focusRef,
   testid = 'sidebar',
   onClickCloseButton,
 }: ISideBarProps) => {
@@ -55,6 +57,8 @@ const SideBar = ({
         isMobile ? styles.mobile : styles.desktop,
         isOpen && styles.open,
       ])}
+      ref={focusRef}
+      tabIndex={1}
       data-testid={testid}
     >
       {renderCloseButton(isMobile)}
