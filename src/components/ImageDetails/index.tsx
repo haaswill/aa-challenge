@@ -34,7 +34,7 @@ const ImageDetails = ({
     ) : (
       <IconButton
         label="Not Favorited"
-        testid="favorited"
+        testid="unfavorited"
         onClick={() => onClickFavorite(id, true)}
         icon={<BsHeart fill="#64748b" className={styles.favorited} />}
       />

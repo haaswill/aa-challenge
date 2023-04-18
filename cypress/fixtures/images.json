@@ -1,0 +1,129 @@
+[
+  {
+    "id": "74957345-6f5b-4d66-ae9d-5d0071b40279",
+    "url": "https://agencyanalytics-api.vercel.app/images/0.jpg",
+    "filename": "tennessee_female_rubber.jpg",
+    "description": "Laboriosam eligendi inventore officia nemo. Quisquam explicabo voluptatem. Illo laborum facilis.",
+    "uploadedBy": "Ms. Jimmie Cole",
+    "createdAt": "2017-07-15T08:23:20.462Z",
+    "updatedAt": "2022-12-16T12:41:33.736Z",
+    "dimensions": {
+      "height": 4800,
+      "width": 3200
+    },
+    "resolution": {
+      "height": 72,
+      "width": 72
+    },
+    "sizeInBytes": 4812732,
+    "sharedWith": [],
+    "favorited": true
+  },
+  {
+    "id": "bb5d702d-6db0-404e-bffb-6216818524b8",
+    "url": "https://agencyanalytics-api.vercel.app/images/1.jpg",
+    "filename": "virginia.jpg",
+    "description": "Consequatur sed accusantium facere quidem amet aspernatur sequi corporis distinctio. Quis delectus repellendus minus totam architecto delectus. Ea labore minima qui pariatur ipsa. Nulla repellendus ab blanditiis unde accusantium tempora ea.",
+    "uploadedBy": "Elvira Willms",
+    "createdAt": "2015-09-21T05:49:02.644Z",
+    "updatedAt": "2022-10-30T10:19:17.504Z",
+    "dimensions": {
+      "height": 2140,
+      "width": 3200
+    },
+    "resolution": {
+      "height": 72,
+      "width": 72
+    },
+    "sizeInBytes": 4312612,
+    "sharedWith": [
+      {
+        "id": "00f507f6-af14-4f34-a553-b16ba72d3eec",
+        "name": "Dawn Quitzon",
+        "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/314.jpg"
+      },
+      {
+        "id": "e4d9d93e-28e9-4105-9463-18b30952cae3",
+        "name": "Rick Dietrich",
+        "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1030.jpg"
+      }
+    ],
+    "favorited": false
+  },
+  {
+    "id": "ee8a0ebd-a73d-4b99-b3a0-65ca065c979d",
+    "url": "https://agencyanalytics-api.vercel.app/images/2.jpg",
+    "filename": "northwest.jpg",
+    "uploadedBy": "Whitney Hamill",
+    "createdAt": "2017-01-07T05:33:01.797Z",
+    "updatedAt": "2022-01-24T02:08:39.544Z",
+    "dimensions": {
+      "height": 2140,
+      "width": 3200
+    },
+    "resolution": {
+      "height": 72,
+      "width": 72
+    },
+    "sizeInBytes": 2275553,
+    "sharedWith": [
+      {
+        "id": "160342e8-a5e7-4656-a63e-a4b2966d3b12",
+        "name": "Evan Bashirian",
+        "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/806.jpg"
+      },
+      {
+        "id": "19137c70-601b-4e52-80e3-6d3fb452e387",
+        "name": "Edwin Hansen",
+        "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/524.jpg"
+      },
+      {
+        "id": "c17d69f6-a829-4ec4-8f72-a17a8c5459ae",
+        "name": "Jacob Corwin IV",
+        "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/299.jpg"
+      },
+      {
+        "id": "9ccfd210-28ce-4ae5-b0e3-f1ecba9729d7",
+        "name": "Clarence Reichel",
+        "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/758.jpg"
+      },
+      {
+        "id": "5631376e-791a-481c-a2ef-8e18c818a54c",
+        "name": "Harold Wilderman",
+        "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/637.jpg"
+      }
+    ],
+    "favorited": true
+  },
+  {
+    "id": "efb6ef85-ae88-4beb-8072-0129df98cdf3",
+    "url": "https://agencyanalytics-api.vercel.app/images/3.jpg",
+    "filename": "tan.jpg",
+    "description": "Ipsum enim eaque veniam blanditiis minus eum. Fuga minima eligendi repudiandae. Illo sint libero accusantium. Accusantium ab aperiam.",
+    "uploadedBy": "Nelson Raynor",
+    "createdAt": "2015-01-14T18:44:37.916Z",
+    "updatedAt": "2021-12-08T10:47:10.540Z",
+    "dimensions": {
+      "height": 2140,
+      "width": 3200
+    },
+    "resolution": {
+      "height": 72,
+      "width": 72
+    },
+    "sizeInBytes": 4020619,
+    "sharedWith": [
+      {
+        "id": "ad451afc-eecb-4c1f-b917-5d13317e14b4",
+        "name": "Rosemary Stroman II",
+        "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/168.jpg"
+      },
+      {
+        "id": "69e6067b-c5c5-40ad-8d09-5ba441189367",
+        "name": "Ernesto Reinger",
+        "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/970.jpg"
+      }
+    ],
+    "favorited": true
+  }
+]
