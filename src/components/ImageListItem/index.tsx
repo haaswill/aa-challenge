@@ -8,17 +8,22 @@ import styles from './ImageListItem.module.css';
 interface IImageListItemProps {
   image: IImage;
   selected: boolean;
+  testid?: string;
   onClick: () => void;
 }
 
+// TODO: Add key press event listeners
 const ImageListItem = ({
   image,
   selected = false,
+  testid = 'image-list-item',
   onClick,
 }: IImageListItemProps): JSX.Element => {
   return (
     <li
       className={classNames([styles.container, selected && styles.selected])}
+      role="listitem"
+      data-testid={testid}
       onClick={onClick}
     >
       <Image

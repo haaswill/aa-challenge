@@ -27,12 +27,14 @@ const ImageDetails = ({
     return favorited ? (
       <IconButton
         label="Favorited"
+        testid="favorited"
         onClick={() => onClickFavorite(id, false)}
         icon={<BsHeartFill fill="#4f45e4" className={styles.favorited} />}
       />
     ) : (
       <IconButton
         label="Not Favorited"
+        testid="favorited"
         onClick={() => onClickFavorite(id, true)}
         icon={<BsHeart fill="#64748b" className={styles.favorited} />}
       />
@@ -85,7 +87,11 @@ const ImageDetails = ({
       </div>
       {renderDescription(image.description)}
       <div className={styles.row}>
-        <Button label="Delete" onClick={() => onClickDelete(image.id)} />
+        <Button
+          label="Delete"
+          testid="delete"
+          onClick={() => onClickDelete(image.id)}
+        />
       </div>
     </div>
   );

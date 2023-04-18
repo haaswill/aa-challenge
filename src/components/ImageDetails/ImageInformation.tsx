@@ -5,7 +5,6 @@ interface IImageInformationProps {
   value: string;
 }
 
-// TODO make it more accessible
 const ImageInformation = ({ title, value }: IImageInformationProps) => (
   <div className={styles.information}>
     <p className={styles.informationTitle}>{title}</p>
