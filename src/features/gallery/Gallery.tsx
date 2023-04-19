@@ -15,6 +15,7 @@ import ImageList from '@/components/ImageList';
 import Tabs from '@/components/Tabs';
 import SideBar from '@/components/SideBar';
 import ImageDetails from '@/components/ImageDetails';
+import classNames from 'classnames';
 
 function Gallery() {
   const dispatch = useAppDispatch();
@@ -84,7 +85,12 @@ function Gallery() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.mainContent}>
+      <div
+        className={classNames([
+          styles.mainContent,
+          openSideBar && styles.sideBarOpen,
+        ])}
+      >
         <h1 className={styles.title} tabIndex={0}>
           Photos
         </h1>

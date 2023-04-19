@@ -16,3 +16,10 @@
   padding: 2rem;
   flex: 1;
 }
+
+/* Mobile */
+@media (max-width: 689px) {
+  .mainContent.sideBarOpen {
+    position: fixed;
+  }
+}
